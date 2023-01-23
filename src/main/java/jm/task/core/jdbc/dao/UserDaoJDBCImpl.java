@@ -9,11 +9,6 @@ import java.util.List;
 
 
 public class UserDaoJDBCImpl implements UserDao {
-
-    public UserDaoJDBCImpl() {
-
-    }
-
     private static String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS users (" +
             " id int auto_increment" +
             " primary key," +
@@ -26,6 +21,10 @@ public class UserDaoJDBCImpl implements UserDao {
     private static String REMOVE_BY_ID = "DELETE FROM users WHERE id=?";
     private static String SELECT_USERS = "SELECT * FROM users;";
     private static String CLEAR_TABLE = "TRUNCATE TABLE users;";
+
+    public UserDaoJDBCImpl() {
+
+    }
 
     @Override
     public void createUsersTable() {
