@@ -10,7 +10,6 @@ public class Util {
     private static final String PASSWORD = "VBq&cucxf53(tSfC";
 
     public static Connection getConnection() {
-
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -18,6 +17,5 @@ public class Util {
             throw new RuntimeException(e);
         }
         return  connection;
-
     }
 }
