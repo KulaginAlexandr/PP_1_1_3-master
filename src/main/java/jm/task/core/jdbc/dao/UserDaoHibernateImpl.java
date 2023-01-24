@@ -18,7 +18,6 @@ public class UserDaoHibernateImpl implements UserDao {
             " age tinyint null" +
             ");";
     private static String DROP_TABLE = "DROP TABLE IF EXISTS users ;";
-    private static String SELECT_USERS = "SELECT * FROM users;";
     private static String CLEAR_TABLE = "TRUNCATE TABLE users;";
 
     public UserDaoHibernateImpl() {
@@ -83,7 +82,7 @@ public class UserDaoHibernateImpl implements UserDao {
         List<User> userList = new ArrayList<>();
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            userList = session.createSQLQuery(SELECT_USERS).addEntity(User.class).list();
+            userList = session.createCriteria(User.class).list();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
